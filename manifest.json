@@ -2,13 +2,13 @@
   "name": "Classroom GPA",
   "version": "1.0",
   "description": "ექსთენშელი GPA-ს გამოსათვლელად",
-  "permissions": ["tabs", "activeTab", "https://classroom.btu.edu.ge/"],
   "content_scripts": [
     {
-      "matches": ["ge/student/me/index"],
-      "js": ["content.js"]
+      "matches": ["https://classroom.btu.edu.ge/ge/student/me/index"],
+      "js": ["gpa_calculator_script.js"]
     }
   ],
+  "permissions": ["tabs", "activeTab", "https://classroom.btu.edu.ge/"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
