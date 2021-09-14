@@ -1,8 +1,8 @@
-// chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
-//   sendResponse(calculateGpa());
-// });
-
-calculateGpa();
+if (window == top) {
+  chrome.runtime.onMessage.addListener(function (req, sender, sendResponse) {
+      sendResponse(calculateGpa());
+  });
+}
 
 function calculateGpa() {
   const marks = document.querySelectorAll("table tr");
@@ -26,6 +26,5 @@ function calculateGpa() {
     gpas.push(gpa * item["credit"]);
     credits_sum += item["credit"];
   });
-  console.log(gpas.reduce((a, b) => a + b) / credits_sum);
   return gpas.reduce((a, b) => a + b) / credits_sum;
 }

@@ -1,3 +1,8 @@
-// const gpa_value = chrome.extension.getBackgroundPage().gpa;
 
-// document.getElementById("gpa").textContent = gpa_value ? gpa_value : "0.00";
+function init() {
+    let bkg = chrome.extension.getBackgroundPage();
+    document.getElementById("gpa").innerHTML = bkg.exportedGPA.toFixed(2)
+}
+
+window.onload = init;
+
